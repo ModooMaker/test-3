@@ -1,70 +1,50 @@
-# Helium Jekyll
-## A new Bootstrap 4 theme
+# ModooMaker/test-3 — Helium Jekyll 테마 Fork
 
-## The project is no longer mantained
+Bootstrap 4 기반 Helium Jekyll 테마를 가져와 설정을 살펴본 과거 저장소입니다. 테마와 기본 UI·샘플의 구현은 원작 작업이며, 이 Fork의 독자적인 제품 기능으로 소개하지 않습니다.
 
-<a href="https://jekyll-themes.com">
-    <img src="https://img.shields.io/badge/featured%20on-JT-red.svg" height="20" alt="Jekyll Themes Shield" >
-</a>
+## 목적과 현재 구현
 
-Helium is a fast, modern and configurable [Jekyll](http://jekyllrb.com/) theme with some tricks up it's sleeve. It has a live theme switcher and it's main blog layout display prominent hero images for posts with colored overlays and nice animations.
+사이트 테마를 검토한 실험 후보로 분류할 수 있습니다. 개인 계정의 `_config.yml` 수정 커밋은 확인되지만 구체적인 제품 개발 목표는 문서화되어 있지 않습니다.
 
-[Bootstrap theme source](https://uideck.com/products/helium-ui-kit/)
+현재 파일에는 랜딩 페이지·블로그·포스트·태그·UI 구성요소 샘플, Liquid 레이아웃, CSS/JavaScript 자산이 있습니다. 별도의 앱 API나 DB는 없습니다.
 
-![helium sample](https://raw.githubusercontent.com/heliumjk/heliumjk.github.io/master/assets/images/helium-screenshot.jpg)
-![helium theme](https://raw.githubusercontent.com/heliumjk/heliumjk.github.io/master/assets/images/helium-screenshot1.jpg)
+## 기술 스택과 구조
 
-## Features
-Though minimalistic-looking by nature, dactl is easily configurable and includes quite a lot of niceties:
+- Jekyll, Liquid, Markdown, Ruby Rake
+- HTML/CSS/JavaScript, Bootstrap 4, Font Awesome
+- `_config.yml`의 테마·URL 설정과 `_layouts/`의 화면 틀
+- `_posts/`의 샘플 글과 `assets/`의 스타일·이미지·스크립트
 
-Main features:
-* [Bootstrap 4](https://v4-alpha.getbootstrap.com/)
-* [Font Awesome](http://fontawesome.io/)
-* 100+ UI Blocks
-* Responsive design
+화면 틀과 글을 정적 생성으로 연결하는 구조입니다. 루트의 `buttons.html`, `cards.html`, `tables.html` 등은 테마 구성요소를 확인하는 샘플입니다.
 
-Jekyll-specific features:
-* Fully compatible with Jekyll 3.x and GitHub Pages
-* SEO optimized
-* [Google Analytics](https://www.google.com/analytics/) support
-* [Google AdSense](https://www.google.com/adsense/start/) support
-* [Disqus](https://disqus.com/) comments support
+## 화면과 참고 데모
 
-Other features:
-* Blog page
-* Landing page samples
-* Tags functionality and tags pages
-* Link posts functionality
-* Mobile slider scrolling
-* Emoji support ⚡️⚡️⚡️ by copy paste from [getemoji](http://getemoji.com/)
+이 Fork는 GitHub Pages가 비활성화되어 있고 별도 배포 데모를 확인하지 못했습니다. [원작 저장소](https://github.com/heliumjk/heliumjk.github.io)의 안내와 이미지는 원작 참고 자료이며 이 저장소에서 검증한 배포 결과가 아닙니다.
 
-Some of the features listed above can be easily configured or disabled by you.
+## 설치와 실행 조건
 
-## Information about Helium
-At it's core, dactl is a forked version of [sentenza](https://github.com/sentenza/jekyll-material-design) but it has been almost entirely rewritten from scratch.  
-I have just started my journey in the world of web development, learning new things on the way.  
-Looking for a way to put my newly acquired skills to test I found Jekyll and I quickly realized that it's going to be a good learning experience since I don't like building 'dummy' projects.  
-I've built this theme as a way to develop my skills further.
+원작 문서는 Jekyll 3.x 계열을 안내하지만 이 저장소에는 Gemfile과 의존성 잠금 파일이 없습니다. 재현 가능한 Ruby/Jekyll 버전 조합을 확정할 수 없으며 새 환경 설치·빌드를 이번 점검에서 실행하지 않았습니다.
 
-You can find credits at the bottom of this Readme file.  
-**All** feedback is welcome, both positive and negative.
+Ruby와 필요한 Jekyll 환경이 이미 있다면 다음과 같이 로컬 제공을 시도할 수 있습니다.
 
-## Installation
-### Running locally
-Assuming you've got Jekyll [installed](https://jekyllrb.com/docs/installation/), clone or download this repo, `cd` into the folder and run `jekyll serve`.
+```bash
+git clone https://github.com/ModooMaker/test-3.git
+cd test-3
+jekyll serve --host 127.0.0.1 --baseurl ""
+```
 
-### Hosting on GitHub
-Fork this repo and rename it to `yourusername.github.io`... and edit the `_config.yaml` file whit your github address and your links (such as social media username, email, name, ecc.)!  
-Your new helium-themed Jekyll blog should be up and running at yourusername.github.io.  
+기본 확인 주소는 `http://127.0.0.1:4000/`입니다. [_config.yml](_config.yml)의 기존 `url`과 `baseurl`은 이 Fork의 이름과 다르므로 배포 경로·외부 연동을 별도 확인해야 합니다. [Rakefile](Rakefile)은 글 생성 등 보조 작업이며 자동 회귀 테스트 묶음이 아닙니다.
 
+## 검증과 현재 한계
 
-## Additional information about some features
-### Hero images and blog layout
-Liquid 'script' which is used to append correct hero image and overlay color as set in post YAML Front matter was written by me and while it's really basic it functions properly.  
-You can read more about it and see the code in `include/utils/hero.html`.
+- 원작 README는 프로젝트가 더 이상 유지보수되지 않는다고 알립니다. 이 Fork가 그 상태를 해결했다고 확인할 근거는 없습니다.
+- 원작 미완성 목록에는 홈 광고 블록, CSS·이미지 최적화, 404 스타일, 코드 하이라이트 스타일이 남아 있습니다. 이 Fork에서 완료한 기능으로 표현하지 않습니다.
+- 저장소 내 자동 테스트와 CI workflow는 없습니다. 오래된 외부 스크립트·링크·선택 연동의 정상 동작도 확인하지 않았습니다.
+- 2026-11-13 점검은 소스·설정·Fork 관계와 README 파일 링크 조사에 한정했습니다.
 
-#### Tags & Tags Pages
-Tags and tag pages are supported by using Jekyll's native collections functionality.  
+## 출처와 라이선스
+
+[Helium 원작](https://github.com/heliumjk/heliumjk.github.io), [기존 변경 이력](changelog.md), [LICENSE](LICENSE)를 함께 확인하세요. 기존 Credits와 License 고지는 아래에 원문으로 보존합니다. 테마의 출처·저작권을 유지해야 합니다.
 
 ## Credits
 ### Resources used
@@ -82,15 +62,3 @@ Inspiration and bits of things listed below are present inside dactl's code:
 
 ## License
 All parts of helium Jekyll theme are free to use and abuse under the open-source [MIT license](http://opensource.org/licenses/mit-license.php).
-
-## TO DO
-- [ ] Add Ads Block to home page 
-- [ ] Minimize `.css` in `<head>` and all images for faster load times
-- [ ] 404 page styles
-- [ ] Create hightlight style for code parts
-
-## Help out
-Im [Antonio Trento](https://antoniotrento.github.io) and I'm looking for funds to be able to open my IT development company with many on-site projects, unfortunately they are hardly feasible without collaboration and an economic base.
-
-If you want to contribute you can donate ethereum or bitcoin:
-- [Donate Bitcoins](https://blockchain.info/address/1B9rDoFCndbsKXL9QiefUcUGUbJH9Y1i6M)
